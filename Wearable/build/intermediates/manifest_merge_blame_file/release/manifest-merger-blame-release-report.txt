@@ -1,0 +1,314 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3     Copyright (C) 2021 The Android Open Source Project
+4
+5     Licensed under the Apache License, Version 2.0 (the "License");
+6     you may not use this file except in compliance with the License.
+7     You may obtain a copy of the License at
+8
+9          http://www.apache.org/licenses/LICENSE-2.0
+10
+11     Unless required by applicable law or agreed to in writing, software
+12     distributed under the License is distributed on an "AS IS" BASIS,
+13     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14     See the License for the specific language governing permissions and
+15     limitations under the License.
+16-->
+17<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+18    package="com.example.android.wearable.wear.wearcomplicationproviderstestsuite"
+19    android:versionCode="1"
+20    android:versionName="1.0" >
+21
+22    <uses-sdk
+23        android:minSdkVersion="26"
+23-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+24        android:targetSdkVersion="30" />
+24-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+25
+26    <uses-feature android:name="android.hardware.type.watch" />
+26-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:23:5-64
+26-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:23:19-61
+27
+28    <uses-permission android:name="android.permission.WAKE_LOCK" />
+28-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:24:5-68
+28-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:24:22-65
+29
+30    <permission
+30-->[androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+31        android:name="com.example.android.wearable.wear.wearcomplicationproviderstestsuite.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+31-->[androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+32        android:protectionLevel="signature" />
+32-->[androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+33
+34    <uses-permission android:name="com.example.android.wearable.wear.wearcomplicationproviderstestsuite.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+34-->[androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+34-->[androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+35
+36    <queries>
+36-->[androidx.wear.tiles:tiles:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/79fd6ce9e538836ffd55740a44bfc25d/transformed/jetified-tiles-1.0.0/AndroidManifest.xml:9:5-13:15
+37        <intent>
+37-->[androidx.wear.tiles:tiles:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/79fd6ce9e538836ffd55740a44bfc25d/transformed/jetified-tiles-1.0.0/AndroidManifest.xml:10:9-12:18
+38            <action android:name="androidx.wear.tiles.action.BIND_UPDATE_REQUESTER" />
+38-->[androidx.wear.tiles:tiles:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/79fd6ce9e538836ffd55740a44bfc25d/transformed/jetified-tiles-1.0.0/AndroidManifest.xml:11:13-87
+38-->[androidx.wear.tiles:tiles:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/79fd6ce9e538836ffd55740a44bfc25d/transformed/jetified-tiles-1.0.0/AndroidManifest.xml:11:21-84
+39        </intent>
+40    </queries>
+41
+42    <application
+42-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:26:5-168:19
+43        android:allowBackup="true"
+43-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:27:9-35
+44        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+44-->[androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+45        android:extractNativeLibs="false"
+46        android:icon="@drawable/ic_launcher"
+46-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:28:9-45
+47        android:label="@string/app_name"
+47-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:29:9-41
+48        android:theme="@style/AppTheme" >
+48-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:30:9-40
+49        <meta-data
+49-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:33:9-35:36
+50            android:name="com.google.android.wearable.standalone"
+50-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:34:13-66
+51            android:value="true" />
+51-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:35:13-33
+52
+53        <uses-library
+53-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:36:9-38:40
+54            android:name="com.google.android.wearable"
+54-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:37:13-55
+55            android:required="false" />
+55-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:38:13-37
+56
+57        <service
+57-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:41:9-57:19
+58            android:name="com.example.android.wearable.wear.wearcomplicationproviderstestsuite.NoDataDataSourceService"
+58-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:42:13-52
+59            android:exported="true"
+59-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:43:13-36
+60            android:icon="@drawable/ic_not_interested_vd_theme_24"
+60-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:44:13-67
+61            android:label="@string/no_data_label"
+61-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:45:13-50
+62            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER" >
+62-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:46:13-99
+63            <intent-filter>
+63-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:47:13-49:29
+64                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+64-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:17-116
+64-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:25-113
+65            </intent-filter>
+66
+67            <meta-data
+67-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:51:13-53:98
+68                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
+68-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:52:17-86
+69                android:value="SHORT_TEXT,LONG_TEXT,SMALL_IMAGE,ICON,RANGED_VALUE,LARGE_IMAGE" />
+69-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:53:17-95
+70            <meta-data
+70-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:54:13-56:37
+71                android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"
+71-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:55:17-92
+72                android:value="0" />
+72-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:56:17-34
+73        </service>
+74        <service
+74-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:59:9-75:19
+75            android:name="com.example.android.wearable.wear.wearcomplicationproviderstestsuite.ShortTextDataSourceService"
+75-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:60:13-55
+76            android:exported="true"
+76-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:61:13-36
+77            android:icon="@drawable/ic_title_vd_theme_24"
+77-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:62:13-58
+78            android:label="@string/short_text_label"
+78-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:63:13-53
+79            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER" >
+79-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:64:13-99
+80            <intent-filter>
+80-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:47:13-49:29
+81                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+81-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:17-116
+81-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:25-113
+82            </intent-filter>
+83
+84            <meta-data
+84-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:51:13-53:98
+85                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
+85-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:52:17-86
+86                android:value="SHORT_TEXT" />
+86-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:53:17-95
+87            <meta-data
+87-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:54:13-56:37
+88                android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"
+88-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:55:17-92
+89                android:value="0" />
+89-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:56:17-34
+90        </service>
+91        <service
+91-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:77:9-93:19
+92            android:name="com.example.android.wearable.wear.wearcomplicationproviderstestsuite.SmallImageDataSourceService"
+92-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:78:13-56
+93            android:exported="true"
+93-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:79:13-36
+94            android:icon="@drawable/ic_image_vd_theme_24"
+94-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:80:13-58
+95            android:label="@string/small_image_label"
+95-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:81:13-54
+96            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER" >
+96-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:82:13-99
+97            <intent-filter>
+97-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:47:13-49:29
+98                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+98-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:17-116
+98-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:25-113
+99            </intent-filter>
+100
+101            <meta-data
+101-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:51:13-53:98
+102                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
+102-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:52:17-86
+103                android:value="SMALL_IMAGE" />
+103-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:53:17-95
+104            <meta-data
+104-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:54:13-56:37
+105                android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"
+105-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:55:17-92
+106                android:value="0" />
+106-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:56:17-34
+107        </service>
+108        <service
+108-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:95:9-111:19
+109            android:name="com.example.android.wearable.wear.wearcomplicationproviderstestsuite.LargeImageDataSourceService"
+109-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:96:13-56
+110            android:exported="true"
+110-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:97:13-36
+111            android:icon="@drawable/ic_landscape_vd_theme_24"
+111-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:98:13-62
+112            android:label="@string/large_image_label"
+112-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:99:13-54
+113            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER" >
+113-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:100:13-99
+114            <intent-filter>
+114-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:47:13-49:29
+115                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+115-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:17-116
+115-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:25-113
+116            </intent-filter>
+117
+118            <meta-data
+118-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:51:13-53:98
+119                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
+119-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:52:17-86
+120                android:value="LARGE_IMAGE" />
+120-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:53:17-95
+121            <meta-data
+121-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:54:13-56:37
+122                android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"
+122-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:55:17-92
+123                android:value="0" />
+123-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:56:17-34
+124        </service>
+125        <service
+125-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:113:9-129:19
+126            android:name="com.example.android.wearable.wear.wearcomplicationproviderstestsuite.IconDataSourceService"
+126-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:114:13-50
+127            android:exported="true"
+127-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:115:13-36
+128            android:icon="@drawable/ic_face_vd_theme_24"
+128-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:116:13-57
+129            android:label="@string/icon_label"
+129-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:117:13-47
+130            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER" >
+130-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:118:13-99
+131            <intent-filter>
+131-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:47:13-49:29
+132                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+132-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:17-116
+132-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:25-113
+133            </intent-filter>
+134
+135            <meta-data
+135-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:51:13-53:98
+136                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
+136-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:52:17-86
+137                android:value="ICON" />
+137-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:53:17-95
+138            <meta-data
+138-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:54:13-56:37
+139                android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"
+139-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:55:17-92
+140                android:value="0" />
+140-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:56:17-34
+141        </service>
+142        <service
+142-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:131:9-147:19
+143            android:name="com.example.android.wearable.wear.wearcomplicationproviderstestsuite.LongTextDataSourceService"
+143-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:132:13-54
+144            android:exported="true"
+144-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:133:13-36
+145            android:icon="@drawable/ic_short_text_vd_theme_24"
+145-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:134:13-63
+146            android:label="@string/long_text_label"
+146-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:135:13-52
+147            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER" >
+147-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:136:13-99
+148            <intent-filter>
+148-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:47:13-49:29
+149                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+149-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:17-116
+149-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:25-113
+150            </intent-filter>
+151
+152            <meta-data
+152-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:51:13-53:98
+153                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
+153-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:52:17-86
+154                android:value="LONG_TEXT" />
+154-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:53:17-95
+155            <meta-data
+155-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:54:13-56:37
+156                android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"
+156-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:55:17-92
+157                android:value="0" />
+157-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:56:17-34
+158        </service>
+159        <service
+159-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:149:9-165:19
+160            android:name="com.example.android.wearable.wear.wearcomplicationproviderstestsuite.RangedValueDataSourceService"
+160-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:150:13-57
+161            android:exported="true"
+161-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:151:13-36
+162            android:icon="@drawable/ic_data_usage_vd_theme_24"
+162-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:152:13-63
+163            android:label="@string/ranged_value_label"
+163-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:153:13-55
+164            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER" >
+164-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:154:13-99
+165            <intent-filter>
+165-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:47:13-49:29
+166                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+166-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:17-116
+166-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:25-113
+167            </intent-filter>
+168
+169            <meta-data
+169-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:51:13-53:98
+170                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
+170-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:52:17-86
+171                android:value="RANGED_VALUE" />
+171-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:53:17-95
+172            <meta-data
+172-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:54:13-56:37
+173                android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"
+173-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:55:17-92
+174                android:value="0" />
+174-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:56:17-34
+175        </service>
+176
+177        <receiver android:name="com.example.android.wearable.wear.wearcomplicationproviderstestsuite.ComplicationToggleReceiver" />
+177-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:167:9-64
+177-->/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:167:19-61
+178    </application>
+179
+180</manifest>

@@ -1,0 +1,4 @@
+#Wed Nov 23 22:07:26 CET 2022
+base.0=/Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

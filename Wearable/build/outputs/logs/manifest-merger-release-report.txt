@@ -1,0 +1,346 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:17:1-169:12
+INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:17:1-169:12
+INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:17:1-169:12
+INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:17:1-169:12
+MERGED from [androidx.databinding:viewbinding:7.3.1] /Users/yannickpulver/.gradle/caches/transforms-3/47a86182a34a8331afa97bfb5d78db91/transformed/jetified-viewbinding-7.3.1/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/f466fcaed48eaeadd6c83c1890584c15/transformed/jetified-datastore-preferences-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.datastore:datastore:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/1358966b5824749c0f0d33e83a19915d/transformed/jetified-datastore-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.wear.watchface:watchface-complications-data-source-ktx:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/da74385e36df54b54ab3eb979b1aa0f0/transformed/jetified-watchface-complications-data-source-ktx-1.1.1/AndroidManifest.xml:2:1-15:12
+MERGED from [androidx.wear.watchface:watchface-complications-data-source:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/464e3d28f18ace25691259b4d04bbdb6/transformed/jetified-watchface-complications-data-source-1.1.1/AndroidManifest.xml:2:1-15:12
+MERGED from [androidx.wear.watchface:watchface-complications:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/8f4b6cbf50b7cf895eb391f1550a619a/transformed/jetified-watchface-complications-1.1.1/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.wear.watchface:watchface-complications-data:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/265656170d5a19ffc375f5a14ba3a0ef/transformed/jetified-watchface-complications-data-1.1.1/AndroidManifest.xml:2:1-15:12
+MERGED from [androidx.preference:preference:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/2ac0fe6905afb5f3b22407b5cff0672b/transformed/preference-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/e4fe4de10ff4b28f6df135bbee62b557/transformed/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/71ec994c0d0c8b7f1422c92036d2a51b/transformed/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/ba871108fb90ffe472adc28c96b4350d/transformed/recyclerview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/88d42ff472f0586a4400d174d4f7ed73/transformed/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/95542d47d1cd254dab477108ac35f59e/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/2f0a27c6467d5c11aa8c546333b41218/transformed/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/a238f012c88242ad78fd589bb9d829d2/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/5a6d61eb6c2d72fa311eb9f059d28bd5/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/da8ba4e12306a2d385dacec42ba8ebdc/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/74c30b289a75599d53e301b3c0b78335/transformed/jetified-activity-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/5a0441a2d92b648c23d2a89ef2481720/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/49991f2b1245601da6e353bae4a8a3b6/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/13c80240e0f293f899e353c9992ad4ea/transformed/coordinatorlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/c5563053e0f501aa8f67d5b5c9e0d6a8/transformed/slidingpanelayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/768b102e31cdbe88bfece59315206bab/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/3f4c556c63899f1dcbf65ed32983586f/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/178a47c68fed96cab3fab08ce84c92bc/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.core:core-ktx:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/ef0434eafd6a8bcd770a62cb114a7299/transformed/jetified-core-ktx-1.9.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/yannickpulver/.gradle/caches/transforms-3/c6defd2ac033e67563a37986ad54999e/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/2335444befc24b98f534592a5b1579eb/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/8cddc489cafbbd34ca8485f7282af251/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/348215e33ae862c8ab6f424ff9804dc5/transformed/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/146ee14ec02f8b79ff19223354130c99/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/14a289f382e6375dfbab7f92ab47f9a2/transformed/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.wear.tiles:tiles:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/79fd6ce9e538836ffd55740a44bfc25d/transformed/jetified-tiles-1.0.0/AndroidManifest.xml:2:1-15:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/9762f87a31e4679f6dc01348cea5cc83/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/8ebb461b81c210c8d52402832732dace/transformed/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/810d8c5f6f02ee51c8cf6e2526c453a8/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/530c49e65fa5f22fa2cba72cbf7dc613/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/c33586c45c765abf275aa7ee022660d6/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/f2f8584eca038cb2732183ac8c695c44/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/yannickpulver/.gradle/caches/transforms-3/781169fc8744ff700f9d17c586a58cad/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:17:1-169:12
+INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:17:1-169:12
+INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:17:1-169:12
+	package
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:19:5-83
+		INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+		INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:21:5-30
+		INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+		INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:18:5-51
+	xmlns:android
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:17:11-69
+	android:versionCode
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:20:5-28
+		INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+		INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+uses-feature#android.hardware.type.watch
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:23:5-64
+	android:name
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:23:19-61
+uses-permission#android.permission.WAKE_LOCK
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:24:5-68
+	android:name
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:24:22-65
+application
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:26:5-168:19
+MERGED from [androidx.wear.watchface:watchface-complications-data-source-ktx:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/da74385e36df54b54ab3eb979b1aa0f0/transformed/jetified-watchface-complications-data-source-ktx-1.1.1/AndroidManifest.xml:9:5-13:19
+MERGED from [androidx.wear.watchface:watchface-complications-data-source-ktx:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/da74385e36df54b54ab3eb979b1aa0f0/transformed/jetified-watchface-complications-data-source-ktx-1.1.1/AndroidManifest.xml:9:5-13:19
+MERGED from [androidx.wear.watchface:watchface-complications-data-source:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/464e3d28f18ace25691259b4d04bbdb6/transformed/jetified-watchface-complications-data-source-1.1.1/AndroidManifest.xml:9:5-13:19
+MERGED from [androidx.wear.watchface:watchface-complications-data-source:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/464e3d28f18ace25691259b4d04bbdb6/transformed/jetified-watchface-complications-data-source-1.1.1/AndroidManifest.xml:9:5-13:19
+MERGED from [androidx.wear.watchface:watchface-complications-data:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/265656170d5a19ffc375f5a14ba3a0ef/transformed/jetified-watchface-complications-data-1.1.1/AndroidManifest.xml:9:5-13:19
+MERGED from [androidx.wear.watchface:watchface-complications-data:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/265656170d5a19ffc375f5a14ba3a0ef/transformed/jetified-watchface-complications-data-1.1.1/AndroidManifest.xml:9:5-13:19
+MERGED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/2335444befc24b98f534592a5b1579eb/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/2335444befc24b98f534592a5b1579eb/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+	android:label
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:29:9-41
+	tools:ignore
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:31:9-35
+	android:icon
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:28:9-45
+	android:allowBackup
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:27:9-35
+	android:theme
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:30:9-40
+meta-data#com.google.android.wearable.standalone
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:33:9-35:36
+	android:value
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:35:13-33
+	android:name
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:34:13-66
+uses-library#com.google.android.wearable
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:36:9-38:40
+MERGED from [androidx.wear.watchface:watchface-complications-data-source-ktx:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/da74385e36df54b54ab3eb979b1aa0f0/transformed/jetified-watchface-complications-data-source-ktx-1.1.1/AndroidManifest.xml:10:9-12:40
+MERGED from [androidx.wear.watchface:watchface-complications-data-source-ktx:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/da74385e36df54b54ab3eb979b1aa0f0/transformed/jetified-watchface-complications-data-source-ktx-1.1.1/AndroidManifest.xml:10:9-12:40
+MERGED from [androidx.wear.watchface:watchface-complications-data-source:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/464e3d28f18ace25691259b4d04bbdb6/transformed/jetified-watchface-complications-data-source-1.1.1/AndroidManifest.xml:10:9-12:40
+MERGED from [androidx.wear.watchface:watchface-complications-data-source:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/464e3d28f18ace25691259b4d04bbdb6/transformed/jetified-watchface-complications-data-source-1.1.1/AndroidManifest.xml:10:9-12:40
+MERGED from [androidx.wear.watchface:watchface-complications-data:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/265656170d5a19ffc375f5a14ba3a0ef/transformed/jetified-watchface-complications-data-1.1.1/AndroidManifest.xml:10:9-12:40
+MERGED from [androidx.wear.watchface:watchface-complications-data:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/265656170d5a19ffc375f5a14ba3a0ef/transformed/jetified-watchface-complications-data-1.1.1/AndroidManifest.xml:10:9-12:40
+	android:required
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:38:13-37
+	android:name
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:37:13-55
+service#com.example.android.wearable.wear.wearcomplicationproviderstestsuite.NoDataDataSourceService
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:41:9-57:19
+	android:label
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:45:13-50
+	android:exported
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:43:13-36
+	android:permission
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:46:13-99
+	android:icon
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:44:13-67
+	android:name
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:42:13-52
+intent-filter#action:name:android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:47:13-49:29
+action#android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:17-116
+	android:name
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:48:25-113
+meta-data#android.support.wearable.complications.SUPPORTED_TYPES
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:51:13-53:98
+	android:value
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:53:17-95
+	android:name
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:52:17-86
+meta-data#android.support.wearable.complications.UPDATE_PERIOD_SECONDS
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:54:13-56:37
+	android:value
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:56:17-34
+	android:name
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:55:17-92
+service#com.example.android.wearable.wear.wearcomplicationproviderstestsuite.ShortTextDataSourceService
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:59:9-75:19
+	android:label
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:63:13-53
+	android:exported
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:61:13-36
+	android:permission
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:64:13-99
+	android:icon
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:62:13-58
+	android:name
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:60:13-55
+service#com.example.android.wearable.wear.wearcomplicationproviderstestsuite.SmallImageDataSourceService
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:77:9-93:19
+	android:label
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:81:13-54
+	android:exported
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:79:13-36
+	android:permission
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:82:13-99
+	android:icon
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:80:13-58
+	android:name
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:78:13-56
+service#com.example.android.wearable.wear.wearcomplicationproviderstestsuite.LargeImageDataSourceService
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:95:9-111:19
+	android:label
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:99:13-54
+	android:exported
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:97:13-36
+	android:permission
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:100:13-99
+	android:icon
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:98:13-62
+	android:name
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:96:13-56
+service#com.example.android.wearable.wear.wearcomplicationproviderstestsuite.IconDataSourceService
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:113:9-129:19
+	android:label
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:117:13-47
+	android:exported
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:115:13-36
+	android:permission
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:118:13-99
+	android:icon
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:116:13-57
+	android:name
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:114:13-50
+service#com.example.android.wearable.wear.wearcomplicationproviderstestsuite.LongTextDataSourceService
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:131:9-147:19
+	android:label
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:135:13-52
+	android:exported
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:133:13-36
+	android:permission
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:136:13-99
+	android:icon
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:134:13-63
+	android:name
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:132:13-54
+service#com.example.android.wearable.wear.wearcomplicationproviderstestsuite.RangedValueDataSourceService
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:149:9-165:19
+	android:label
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:153:13-55
+	android:exported
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:151:13-36
+	android:permission
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:154:13-99
+	android:icon
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:152:13-63
+	android:name
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:150:13-57
+receiver#com.example.android.wearable.wear.wearcomplicationproviderstestsuite.ComplicationToggleReceiver
+ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:167:9-64
+	android:name
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml:167:19-61
+uses-sdk
+INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+MERGED from [androidx.databinding:viewbinding:7.3.1] /Users/yannickpulver/.gradle/caches/transforms-3/47a86182a34a8331afa97bfb5d78db91/transformed/jetified-viewbinding-7.3.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.databinding:viewbinding:7.3.1] /Users/yannickpulver/.gradle/caches/transforms-3/47a86182a34a8331afa97bfb5d78db91/transformed/jetified-viewbinding-7.3.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/f466fcaed48eaeadd6c83c1890584c15/transformed/jetified-datastore-preferences-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/f466fcaed48eaeadd6c83c1890584c15/transformed/jetified-datastore-preferences-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/1358966b5824749c0f0d33e83a19915d/transformed/jetified-datastore-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/1358966b5824749c0f0d33e83a19915d/transformed/jetified-datastore-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.wear.watchface:watchface-complications-data-source-ktx:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/da74385e36df54b54ab3eb979b1aa0f0/transformed/jetified-watchface-complications-data-source-ktx-1.1.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.wear.watchface:watchface-complications-data-source-ktx:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/da74385e36df54b54ab3eb979b1aa0f0/transformed/jetified-watchface-complications-data-source-ktx-1.1.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.wear.watchface:watchface-complications-data-source:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/464e3d28f18ace25691259b4d04bbdb6/transformed/jetified-watchface-complications-data-source-1.1.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.wear.watchface:watchface-complications-data-source:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/464e3d28f18ace25691259b4d04bbdb6/transformed/jetified-watchface-complications-data-source-1.1.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.wear.watchface:watchface-complications:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/8f4b6cbf50b7cf895eb391f1550a619a/transformed/jetified-watchface-complications-1.1.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.wear.watchface:watchface-complications:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/8f4b6cbf50b7cf895eb391f1550a619a/transformed/jetified-watchface-complications-1.1.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.wear.watchface:watchface-complications-data:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/265656170d5a19ffc375f5a14ba3a0ef/transformed/jetified-watchface-complications-data-1.1.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.wear.watchface:watchface-complications-data:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/265656170d5a19ffc375f5a14ba3a0ef/transformed/jetified-watchface-complications-data-1.1.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.preference:preference:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/2ac0fe6905afb5f3b22407b5cff0672b/transformed/preference-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.preference:preference:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/2ac0fe6905afb5f3b22407b5cff0672b/transformed/preference-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/e4fe4de10ff4b28f6df135bbee62b557/transformed/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/e4fe4de10ff4b28f6df135bbee62b557/transformed/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/71ec994c0d0c8b7f1422c92036d2a51b/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/71ec994c0d0c8b7f1422c92036d2a51b/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/ba871108fb90ffe472adc28c96b4350d/transformed/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/ba871108fb90ffe472adc28c96b4350d/transformed/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/88d42ff472f0586a4400d174d4f7ed73/transformed/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/88d42ff472f0586a4400d174d4f7ed73/transformed/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/95542d47d1cd254dab477108ac35f59e/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/95542d47d1cd254dab477108ac35f59e/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/2f0a27c6467d5c11aa8c546333b41218/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/2f0a27c6467d5c11aa8c546333b41218/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/a238f012c88242ad78fd589bb9d829d2/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/a238f012c88242ad78fd589bb9d829d2/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/5a6d61eb6c2d72fa311eb9f059d28bd5/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/5a6d61eb6c2d72fa311eb9f059d28bd5/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/da8ba4e12306a2d385dacec42ba8ebdc/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/da8ba4e12306a2d385dacec42ba8ebdc/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/74c30b289a75599d53e301b3c0b78335/transformed/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/74c30b289a75599d53e301b3c0b78335/transformed/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/5a0441a2d92b648c23d2a89ef2481720/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/5a0441a2d92b648c23d2a89ef2481720/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/49991f2b1245601da6e353bae4a8a3b6/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/49991f2b1245601da6e353bae4a8a3b6/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/13c80240e0f293f899e353c9992ad4ea/transformed/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/13c80240e0f293f899e353c9992ad4ea/transformed/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/c5563053e0f501aa8f67d5b5c9e0d6a8/transformed/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/c5563053e0f501aa8f67d5b5c9e0d6a8/transformed/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/768b102e31cdbe88bfece59315206bab/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/768b102e31cdbe88bfece59315206bab/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/3f4c556c63899f1dcbf65ed32983586f/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/3f4c556c63899f1dcbf65ed32983586f/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/178a47c68fed96cab3fab08ce84c92bc/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/178a47c68fed96cab3fab08ce84c92bc/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/ef0434eafd6a8bcd770a62cb114a7299/transformed/jetified-core-ktx-1.9.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/ef0434eafd6a8bcd770a62cb114a7299/transformed/jetified-core-ktx-1.9.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/yannickpulver/.gradle/caches/transforms-3/c6defd2ac033e67563a37986ad54999e/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/yannickpulver/.gradle/caches/transforms-3/c6defd2ac033e67563a37986ad54999e/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/2335444befc24b98f534592a5b1579eb/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/yannickpulver/.gradle/caches/transforms-3/2335444befc24b98f534592a5b1579eb/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/8cddc489cafbbd34ca8485f7282af251/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/8cddc489cafbbd34ca8485f7282af251/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/348215e33ae862c8ab6f424ff9804dc5/transformed/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/348215e33ae862c8ab6f424ff9804dc5/transformed/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/146ee14ec02f8b79ff19223354130c99/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/146ee14ec02f8b79ff19223354130c99/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/14a289f382e6375dfbab7f92ab47f9a2/transformed/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/14a289f382e6375dfbab7f92ab47f9a2/transformed/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.wear.tiles:tiles:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/79fd6ce9e538836ffd55740a44bfc25d/transformed/jetified-tiles-1.0.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.wear.tiles:tiles:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/79fd6ce9e538836ffd55740a44bfc25d/transformed/jetified-tiles-1.0.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/9762f87a31e4679f6dc01348cea5cc83/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/9762f87a31e4679f6dc01348cea5cc83/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/8ebb461b81c210c8d52402832732dace/transformed/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/yannickpulver/.gradle/caches/transforms-3/8ebb461b81c210c8d52402832732dace/transformed/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/810d8c5f6f02ee51c8cf6e2526c453a8/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/810d8c5f6f02ee51c8cf6e2526c453a8/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/530c49e65fa5f22fa2cba72cbf7dc613/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/530c49e65fa5f22fa2cba72cbf7dc613/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/c33586c45c765abf275aa7ee022660d6/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/c33586c45c765abf275aa7ee022660d6/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/f2f8584eca038cb2732183ac8c695c44/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/f2f8584eca038cb2732183ac8c695c44/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/yannickpulver/.gradle/caches/transforms-3/781169fc8744ff700f9d17c586a58cad/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/yannickpulver/.gradle/caches/transforms-3/781169fc8744ff700f9d17c586a58cad/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+		INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+		ADDED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+		INJECTED from /Users/yannickpulver/Code/android/wear-os/wear-os-samples/WearComplicationDataSourcesTestSuite/Wearable/src/main/AndroidManifest.xml
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+permission#com.example.android.wearable.wear.wearcomplicationproviderstestsuite.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+uses-permission#com.example.android.wearable.wear.wearcomplicationproviderstestsuite.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.9.0] /Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+queries
+ADDED from [androidx.wear.tiles:tiles:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/79fd6ce9e538836ffd55740a44bfc25d/transformed/jetified-tiles-1.0.0/AndroidManifest.xml:9:5-13:15
+intent#action:name:androidx.wear.tiles.action.BIND_UPDATE_REQUESTER
+ADDED from [androidx.wear.tiles:tiles:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/79fd6ce9e538836ffd55740a44bfc25d/transformed/jetified-tiles-1.0.0/AndroidManifest.xml:10:9-12:18
+action#androidx.wear.tiles.action.BIND_UPDATE_REQUESTER
+ADDED from [androidx.wear.tiles:tiles:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/79fd6ce9e538836ffd55740a44bfc25d/transformed/jetified-tiles-1.0.0/AndroidManifest.xml:11:13-87
+	android:name
+		ADDED from [androidx.wear.tiles:tiles:1.0.0] /Users/yannickpulver/.gradle/caches/transforms-3/79fd6ce9e538836ffd55740a44bfc25d/transformed/jetified-tiles-1.0.0/AndroidManifest.xml:11:21-84

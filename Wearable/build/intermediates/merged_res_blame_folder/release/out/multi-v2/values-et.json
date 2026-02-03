@@ -1,0 +1,79 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.android.wearable.wear.wearcomplicationproviderstestsuite.Wearable-mergeReleaseResources-19:/values-et/values-et.xml",
+            "map": [
+                {
+                    "source": "/Users/yannickpulver/.gradle/caches/transforms-3/e4fe4de10ff4b28f6df135bbee62b557/transformed/appcompat-1.1.0/res/values-et/values-et.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,211,310,421,507,609,726,807,885,977,1070,1166,1268,1378,1472,1573,1667,1759,1852,1934,2045,2149,2248,2358,2460,2559,2725,2827",
+                        "endColumns": "105,98,110,85,101,116,80,77,91,92,95,101,109,93,100,93,91,92,81,110,103,98,109,101,98,165,101,81",
+                        "endOffsets": "206,305,416,502,604,721,802,880,972,1065,1161,1263,1373,1467,1568,1662,1754,1847,1929,2040,2144,2243,2353,2455,2554,2720,2822,2904"
+                    },
+                    "to": {
+                        "startLines": "26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,57",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1728,1834,1933,2044,2130,2232,2349,2430,2508,2600,2693,2789,2891,3001,3095,3196,3290,3382,3475,3557,3668,3772,3871,3981,4083,4182,4348,4825",
+                        "endColumns": "105,98,110,85,101,116,80,77,91,92,95,101,109,93,100,93,91,92,81,110,103,98,109,101,98,165,101,81",
+                        "endOffsets": "1829,1928,2039,2125,2227,2344,2425,2503,2595,2688,2784,2886,2996,3090,3191,3285,3377,3470,3552,3663,3767,3866,3976,4078,4177,4343,4445,4902"
+                    }
+                },
+                {
+                    "source": "/Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/res/values-et/values-et.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "58",
+                        "startColumns": "4",
+                        "startOffsets": "4907",
+                        "endColumns": "100",
+                        "endOffsets": "5003"
+                    }
+                },
+                {
+                    "source": "/Users/yannickpulver/.gradle/caches/transforms-3/2ac0fe6905afb5f3b22407b5cff0672b/transformed/preference-1.1.0/res/values-et/values-et.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "105,180,267,342,480,649,732",
+                        "endColumns": "74,86,74,137,168,82,77",
+                        "endOffsets": "175,262,337,475,644,727,805"
+                    },
+                    "to": {
+                        "startLines": "53,54,55,56,59,63,64",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "4450,4525,4612,4687,5008,5604,5687",
+                        "endColumns": "74,86,74,137,168,82,77",
+                        "endOffsets": "4520,4607,4682,4820,5172,5682,5760"
+                    }
+                },
+                {
+                    "source": "/Users/yannickpulver/.gradle/caches/transforms-3/265656170d5a19ffc375f5a14ba3a0ef/transformed/jetified-watchface-complications-data-1.1.1/res/values-et/values-et.xml",
+                    "from": {
+                        "startLines": "2,6,10,14,18,22,26,27,28",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,368,634,910,1180,1453,1728,1813,1981",
+                        "endLines": "5,9,13,17,21,25,26,27,28",
+                        "endColumns": "14,14,14,14,14,14,84,167,173",
+                        "endOffsets": "363,629,905,1175,1448,1723,1808,1976,2150"
+                    },
+                    "to": {
+                        "startLines": "2,6,10,14,18,22,60,61,62",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,368,634,910,1180,1453,5177,5262,5430",
+                        "endLines": "5,9,13,17,21,25,60,61,62",
+                        "endColumns": "14,14,14,14,14,14,84,167,173",
+                        "endOffsets": "363,629,905,1175,1448,1723,5257,5425,5599"
+                    }
+                }
+            ]
+        }
+    ]
+}

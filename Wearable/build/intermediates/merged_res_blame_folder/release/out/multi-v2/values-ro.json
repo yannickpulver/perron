@@ -1,0 +1,79 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.android.wearable.wear.wearcomplicationproviderstestsuite.Wearable-mergeReleaseResources-19:/values-ro/values-ro.xml",
+            "map": [
+                {
+                    "source": "/Users/yannickpulver/.gradle/caches/transforms-3/265656170d5a19ffc375f5a14ba3a0ef/transformed/jetified-watchface-complications-data-1.1.1/res/values-ro/values-ro.xml",
+                    "from": {
+                        "startLines": "2,7,12,17,22,27,32,33,34",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,444,787,1138,1487,1839,2198,2281,2449",
+                        "endLines": "6,11,16,21,26,31,32,33,34",
+                        "endColumns": "14,14,14,14,14,14,82,167,173",
+                        "endOffsets": "439,782,1133,1482,1834,2193,2276,2444,2618"
+                    },
+                    "to": {
+                        "startLines": "2,7,12,17,22,27,66,67,68",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,444,787,1138,1487,1839,5667,5750,5918",
+                        "endLines": "6,11,16,21,26,31,66,67,68",
+                        "endColumns": "14,14,14,14,14,14,82,167,173",
+                        "endOffsets": "439,782,1133,1482,1834,2193,5745,5913,6087"
+                    }
+                },
+                {
+                    "source": "/Users/yannickpulver/.gradle/caches/transforms-3/e4fe4de10ff4b28f6df135bbee62b557/transformed/appcompat-1.1.0/res/values-ro/values-ro.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,226,330,443,527,631,752,837,918,1009,1101,1196,1290,1391,1484,1579,1673,1764,1856,1938,2050,2158,2258,2372,2478,2584,2748,2851",
+                        "endColumns": "120,103,112,83,103,120,84,80,90,91,94,93,100,92,94,93,90,91,81,111,107,99,113,105,105,163,102,82",
+                        "endOffsets": "221,325,438,522,626,747,832,913,1004,1096,1191,1285,1386,1479,1574,1668,1759,1851,1933,2045,2153,2253,2367,2473,2579,2743,2846,2929"
+                    },
+                    "to": {
+                        "startLines": "32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,63",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2198,2319,2423,2536,2620,2724,2845,2930,3011,3102,3194,3289,3383,3484,3577,3672,3766,3857,3949,4031,4143,4251,4351,4465,4571,4677,4841,5314",
+                        "endColumns": "120,103,112,83,103,120,84,80,90,91,94,93,100,92,94,93,90,91,81,111,107,99,113,105,105,163,102,82",
+                        "endOffsets": "2314,2418,2531,2615,2719,2840,2925,3006,3097,3189,3284,3378,3479,3572,3667,3761,3852,3944,4026,4138,4246,4346,4460,4566,4672,4836,4939,5392"
+                    }
+                },
+                {
+                    "source": "/Users/yannickpulver/.gradle/caches/transforms-3/f9083061feee1cf192d4e4c7ca8dc36c/transformed/core-1.9.0/res/values-ro/values-ro.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "64",
+                        "startColumns": "4",
+                        "startOffsets": "5397",
+                        "endColumns": "100",
+                        "endOffsets": "5493"
+                    }
+                },
+                {
+                    "source": "/Users/yannickpulver/.gradle/caches/transforms-3/2ac0fe6905afb5f3b22407b5cff0672b/transformed/preference-1.1.0/res/values-ro/values-ro.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "105,176,262,336,475,644,731",
+                        "endColumns": "70,85,73,138,168,86,80",
+                        "endOffsets": "171,257,331,470,639,726,807"
+                    },
+                    "to": {
+                        "startLines": "59,60,61,62,65,69,70",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "4944,5015,5101,5175,5498,6092,6179",
+                        "endColumns": "70,85,73,138,168,86,80",
+                        "endOffsets": "5010,5096,5170,5309,5662,6174,6255"
+                    }
+                }
+            ]
+        }
+    ]
+}
