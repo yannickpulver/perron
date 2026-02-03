@@ -18,6 +18,7 @@ package com.example.android.wearable.wear.wearcomplicationproviderstestsuite
 import android.app.PendingIntent
 import android.content.ComponentName
 import android.graphics.drawable.Icon
+import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.wear.watchface.complications.data.ComplicationData
 import androidx.wear.watchface.complications.data.ComplicationType
@@ -70,11 +71,35 @@ class TransportDataSourceService : SuspendingComplicationDataSourceService() {
         // Suspending function to retrieve the complication's state
         val state = args.getState(this@TransportDataSourceService)
 
+        // Try location-based selection, fall back to DataStore toggle
+        val locationProvider = WearLocationProvider(this)
+        val locationResult = locationProvider.getLocation()
+        Log.d(TAG, "Location result: $locationResult")
 
-        val case = Case.values()[state.mod(Case.values().size)]
+        val case = when (locationResult) {
+            is LocationResult.Success -> {
+                val closestStation = StationSelector.selectClosestStation(
+                    locationResult.latitude,
+                    locationResult.longitude
+                )
+                Log.d(TAG, "Closest station: ${closestStation.name}")
+                when (closestStation) {
+                    Station.WYLEREGG -> Case.HOME
+                    Station.SCHÖNEGG -> Case.WORK
+                    Station.BAHNHOF -> Case.BAHNHOF
+                    else -> Case.values()[state.mod(Case.values().size)]
+                }
+            }
+            is LocationResult.Error -> {
+                Log.d(TAG, "Location error, falling back to toggle: ${locationResult.reason}")
+                Case.values()[state.mod(Case.values().size)]
+            }
+        }
+        Log.d(TAG, "Selected case: $case")
         val response = when (case) {
             Case.HOME -> client.get("https://transport.opendata.ch/v1/connections?from=Bern%20Wyleregg&to=Bern&limit=3")
             Case.WORK -> client.get("https://transport.opendata.ch/v1/connections?from=Bern%20Schönegg&to=Bern&limit=3")
+            Case.BAHNHOF -> client.get("https://transport.opendata.ch/v1/connections?from=Bern&to=Bern%20Wyleregg&limit=3")
         }
         val connectionList = json.decodeFromString<ConnectionList>(response.body())
 
@@ -134,14 +159,33 @@ class TransportDataSourceService : SuspendingComplicationDataSourceService() {
                         .build()
                 )
         }
+        Case.BAHNHOF -> {
+            ShortTextComplicationData.Builder(
+                text = PlainComplicationText.Builder(
+                    text = time
+                ).build(),
+                contentDescription = PlainComplicationText.Builder(
+                    text = getText(R.string.short_text_only_content_description)
+                ).build()
+            )
+                .setMonochromaticImage(
+                    MonochromaticImage.Builder(
+                        image = Icon.createWithResource(this, R.drawable.ic_data_usage_vd_theme_24)
+                    )
+                        .build()
+                )
+        }
     }.setTapAction(tapAction)
         .build()
 
 
     private enum class Case {
-        HOME, WORK
+        HOME, WORK, BAHNHOF
     }
 
+    companion object {
+        private const val TAG = "TransportDataSource"
+    }
 }
 
 fun ConnectionList.toTime(): String {

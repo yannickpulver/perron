@@ -59,6 +59,7 @@ android {
 
 dependencies {
     implementation libs.kotlinx.coroutines.android
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4"
     implementation libs.androidx.core.ktx
     implementation libs.androidx.datastore.preferences
     implementation libs.androidx.wear.watchface.complications.data.source.ktx
@@ -66,4 +67,5 @@ dependencies {
     implementation "io.ktor:ktor-client-okhttp:2.1.3"
     implementation "io.ktor:ktor-serialization-kotlinx-json:2.1.3"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"
+    implementation "com.google.android.gms:play-services-location:21.0.1"
 }
