@@ -1,54 +1,27 @@
+# Wear OS Transport Complication
 
-Android WearComplicationProvidersTestSuite Sample
-=================================================
+A Wear OS complication that shows next public transport departures based on your location.
 
-Complication Test Suite is a set of complication data sources that provide dummy data and it can be
-used to test how different types of complications render on a watch face.
+## Features
 
-Introduction
-------------
+- Automatically detects closest station (Wyleregg, Schönegg, or Bern Bahnhof)
+- Shows next 2 departure times on your watch face
+- Updates every 10 minutes
+- Uses [Swiss public transport API](https://transport.opendata.ch/)
 
-Steps for trying out the sample:
-* Compile and install the wearable app onto your Wear device or emulator (for Wear scenario).
+## Permissions
 
-* This sample does not have a main Activity (just Services that provide the complication data).
-Therefore, you may see an error next to the 'Run' button. To fix, click on the
-"Wearable" dropdown next to the 'Run' button and select 'Edit Configurations'. Under the
-'Launch Options', change the 'Launch' field from 'Default APK' to 'Nothing' and save.
+- Location (for station selection)
+- Internet (for fetching departures)
 
-This sample provides dummy data for testing the complications UI in your watch face. After
-selecting a type from your watch face configuration Activity, you can tap on the complications to
-see more options.
+## Setup
 
-The Wear app demonstrates the use of [ComplicationData][1], [ComplicationDataSourceService][2], and [ComplicationText][3].
+1. Install on Wear OS device
+2. Grant location permissions
+3. Add "Transport Data" complication to your watch face
 
-[1]: https://developer.android.com/reference/kotlin/androidx/wear/complications/data/ComplicationData
-[2]: https://developer.android.com/reference/kotlin/androidx/wear/complications/datasource/ComplicationDataSourceService
-[3]: https://developer.android.com/reference/kotlin/androidx/wear/complications/data/ComplicationText
+## Build
 
-Pre-requisites
---------------
-
-- Android SDK 30
-
-Screenshots
--------------
-
-<img src="screenshots/wear-1.png" height="400" alt="Screenshot"/> <img src="screenshots/wear-2.png" height="400" alt="Screenshot"/> 
-
-Getting Started
----------------
-
-This sample uses the Gradle build system. To build this project, use the
-"gradlew build" command or use "Import Project" in Android Studio.
-
-Support
--------
-
-- Stack Overflow: https://stackoverflow.com/questions/tagged/wear-os
-
-If you've found an error in this sample, please file an issue:
-https://github.com/android/wear-os-samples/issues
-
-Patches are encouraged, and may be submitted by forking this project and
-submitting a pull request through GitHub. Please see CONTRIBUTING.md for more details.
+```bash
+./gradlew :Wearable:installDebug
+```
