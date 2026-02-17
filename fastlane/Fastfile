@@ -3,7 +3,7 @@ default_platform(:android)
 platform :android do
     desc "Build the Wear OS app"
     lane :build do
-        gradle(task: ":Wearable:bundleRelease")
+        gradle(task: ":app:bundleRelease")
     end
 
     desc "Deploy to Google Play Store (internal track)"
@@ -11,7 +11,7 @@ platform :android do
         build
         supply(
           track: "internal",
-          aab: "Wearable/build/outputs/bundle/release/Wearable-release.aab",
+          aab: "app/build/outputs/bundle/release/app-release.aab",
           skip_upload_metadata: true,
           skip_upload_images: true,
           skip_upload_screenshots: true,
