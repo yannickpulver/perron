@@ -242,6 +242,7 @@ private fun StationSearchScreen(
     var query by remember { mutableStateOf("") }
     var results by remember { mutableStateOf<List<StationInfo>>(emptyList()) }
     var searching by remember { mutableStateOf(false) }
+    val listState = androidx.wear.compose.foundation.lazy.rememberScalingLazyListState()
 
     fun doSearch() {
         keyboardController?.hide()
@@ -253,41 +254,70 @@ private fun StationSearchScreen(
                 emptyList()
             }
             searching = false
+            // Scroll to results (item 0 = header, 1 = search row, 2+ = results)
+            if (results.isNotEmpty()) {
+                listState.animateScrollToItem(2)
+            }
         }
     }
 
-    ScalingLazyColumn(modifier = Modifier.fillMaxSize()) {
+    ScalingLazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        state = listState
+    ) {
         item { ListHeader { Text(title) } }
 
         item {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.DarkGray, RoundedCornerShape(8.dp))
-                    .padding(horizontal = 12.dp, vertical = 8.dp),
-                contentAlignment = Alignment.CenterStart
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(6.dp)
             ) {
-                if (query.isEmpty()) {
-                    Text("Station name...", color = Color.Gray, fontSize = 14.sp)
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .background(Color.DarkGray, RoundedCornerShape(8.dp))
+                        .padding(horizontal = 12.dp, vertical = 8.dp),
+                    contentAlignment = Alignment.CenterStart
+                ) {
+                    if (query.isEmpty()) {
+                        Text("Station...", color = Color.Gray, fontSize = 14.sp)
+                    }
+                    BasicTextField(
+                        value = query,
+                        onValueChange = { query = it },
+                        textStyle = TextStyle(color = Color.White, fontSize = 14.sp),
+                        cursorBrush = SolidColor(Color.White),
+                        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+                        keyboardActions = KeyboardActions(onSearch = { doSearch() }),
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth()
+                    )
                 }
-                BasicTextField(
-                    value = query,
-                    onValueChange = { query = it },
-                    textStyle = TextStyle(color = Color.White, fontSize = 14.sp),
-                    cursorBrush = SolidColor(Color.White),
-                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
-                    keyboardActions = KeyboardActions(onSearch = { doSearch() }),
-                    modifier = Modifier.fillMaxWidth()
+                Button(
+                    onClick = { doSearch() },
+                    modifier = Modifier.size(36.dp),
+                    label = {
+                        Icon(
+                            painter = painterResource(android.R.drawable.ic_menu_search),
+                            contentDescription = "Search",
+                            modifier = Modifier.size(16.dp)
+                        )
+                    }
                 )
             }
         }
 
-        item {
-            Button(
-                onClick = { doSearch() },
-                modifier = Modifier.fillMaxWidth(),
-                label = { Text(if (searching) "Searching..." else "Search") }
-            )
+        if (searching) {
+            item {
+                Text(
+                    "Searching...",
+                    modifier = Modifier.fillMaxWidth().padding(8.dp),
+                    textAlign = TextAlign.Center,
+                    fontSize = 12.sp,
+                    color = Color.Gray
+                )
+            }
         }
 
         items(results, key = { it.id }) { station ->
