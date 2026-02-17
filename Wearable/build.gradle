@@ -14,7 +14,9 @@ android {
         applicationId "com.yannickpulver.perron"
         def versionFile = rootProject.file("VERSION")
         def versionStr = versionFile.text.trim()
-        versionCode (System.getenv("GITHUB_RUN_NUMBER") ?: "1").toInteger()
+        def runNumber = System.getenv("GITHUB_RUN_NUMBER")
+        def code = runNumber != null ? runNumber.toInteger() : 1
+        versionCode code
         versionName versionStr
         minSdk 26
         targetSdk 35

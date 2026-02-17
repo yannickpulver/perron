@@ -48,7 +48,7 @@ class WearLocationProvider(private val context: Context) : LocationProvider {
         cachedLocation = null
     }
 
-    suspend fun getLocation(forceFresh: Boolean = false): LocationResult {
+    override suspend fun getLocation(forceFresh: Boolean): LocationResult {
         Log.d(TAG, "getLocation() called, forceFresh=$forceFresh")
 
         // Check permission
