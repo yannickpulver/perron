@@ -1,15 +1,8 @@
 default_platform(:android)
 
 platform :android do
-    lane :increment_build do
-        increment_version_code(
-            gradle_file_path: "Wearable/build.gradle",
-        )
-    end
-
     desc "Build the Wear OS app"
     lane :build do
-        increment_build
         gradle(task: ":Wearable:bundleRelease")
     end
 

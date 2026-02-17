@@ -2,9 +2,8 @@ name: Deploy to Play Store
 
 on:
   push:
-    tags:
-      - 'v*'
-  workflow_dispatch:
+    branches:
+      - main
 
 jobs:
   deploy:
