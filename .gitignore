@@ -19,3 +19,4 @@ local.properties
 
 # OS
 .DS_Store
+fastlane/play-console-credentials.json

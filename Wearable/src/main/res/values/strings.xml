@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources>
-        <string name="app_name">WearComplicationProvidersTestSuite</string>
+        <string name="app_name">Perron</string>
 
         <string name="no_data_label">No Data</string>
         <string name="short_text_label">Short Text</string>
