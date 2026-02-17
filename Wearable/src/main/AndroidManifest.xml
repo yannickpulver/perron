@@ -28,7 +28,7 @@
         <activity
             android:name=".RouteConfigActivity"
             android:exported="true"
-            android:label="Configure Routes">
+            android:label="Perron">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -39,7 +39,7 @@
             android:name=".TransportDataSourceService"
             android:exported="true"
             android:icon="@drawable/ic_data_usage_vd_theme_24"
-            android:label="Transport Data"
+            android:label="Perron"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
