@@ -24,19 +24,17 @@ android {
 
     signingConfigs {
         release {
-            def ksFile = System.getenv("KEYSTORE_FILE")
-            if (ksFile) {
-                storeFile file(ksFile)
-                storePassword System.getenv("KEYSTORE_PASSWORD")
-                keyAlias System.getenv("KEY_ALIAS")
-                keyPassword System.getenv("KEY_PASSWORD")
-            }
+            def ksFile = System.getenv("KEYSTORE_FILE") ?: rootProject.file("release.keystore").absolutePath
+            storeFile file(ksFile)
+            storePassword System.getenv("KEYSTORE_PASSWORD") ?: ""
+            keyAlias System.getenv("KEY_ALIAS") ?: "perron"
+            keyPassword System.getenv("KEY_PASSWORD") ?: ""
         }
     }
 
     buildTypes {
         release {
-            signingConfig signingConfigs.release.storeFile ? signingConfigs.release : null
+            signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

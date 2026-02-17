@@ -22,20 +22,12 @@ jobs:
         with:
           ruby-version: '3.2'
           bundler-cache: true
-          working-directory: fastlane
-
-      - name: Install Fastlane
-        run: |
-          gem install fastlane
-          cd fastlane && bundle install
 
       - name: Decode signing key
-        run: |
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > keystore.jks
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > keystore.jks
 
       - name: Create Play Console credentials
-        run: |
-          echo '${{ secrets.PLAY_CONSOLE_CREDENTIALS }}' > fastlane/play-console-credentials.json
+        run: echo '${{ secrets.PLAY_CONSOLE_CREDENTIALS }}' > fastlane/play-console-credentials.json
 
       - name: Build & Deploy
         env:
@@ -43,4 +35,4 @@ jobs:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-        run: fastlane android deploy
+        run: bundle exec fastlane android deploy
