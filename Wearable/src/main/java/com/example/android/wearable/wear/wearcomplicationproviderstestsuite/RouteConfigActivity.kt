@@ -8,14 +8,19 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
@@ -32,7 +37,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -189,14 +196,29 @@ private fun RouteListScreen(onAddRoute: () -> Unit) {
                     }
                 },
                 modifier = Modifier.fillMaxWidth(),
-                icon = {
-                    Icon(
-                        painter = painterResource(RouteIcon.fromKey(route.icon).drawableRes),
-                        contentDescription = null,
-                        modifier = Modifier.size(16.dp)
-                    )
-                },
-                label = { Text("${route.fromStation.name} -> ${route.toStation.name}") }
+                label = {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        // Dots and dashed line
+                        RouteIndicator(modifier = Modifier.height(36.dp))
+                        Spacer(Modifier.width(8.dp))
+                        // Station names
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(route.fromStation.name, fontSize = 12.sp, maxLines = 1)
+                            Spacer(Modifier.height(4.dp))
+                            Text(route.toStation.name, fontSize = 12.sp, maxLines = 1)
+                        }
+                        Spacer(Modifier.width(8.dp))
+                        // Icon on the right
+                        Icon(
+                            painter = painterResource(RouteIcon.fromKey(route.icon).drawableRes),
+                            contentDescription = null,
+                            modifier = Modifier.size(16.dp)
+                        )
+                    }
+                }
             )
         }
 
@@ -275,6 +297,39 @@ private fun StationSearchScreen(
                 label = { Text(station.name) }
             )
         }
+    }
+}
+
+@Composable
+private fun RouteIndicator(modifier: Modifier = Modifier) {
+    Canvas(modifier = modifier.width(8.dp)) {
+        val dotRadius = 3.dp.toPx()
+        val centerX = size.width / 2
+        val topY = dotRadius + 1.dp.toPx()
+        val bottomY = size.height - dotRadius - 1.dp.toPx()
+
+        // Top dot
+        drawCircle(
+            color = Color.White,
+            radius = dotRadius,
+            center = Offset(centerX, topY)
+        )
+
+        // Dashed line between dots
+        drawLine(
+            color = Color.White.copy(alpha = 0.5f),
+            start = Offset(centerX, topY + dotRadius + 2.dp.toPx()),
+            end = Offset(centerX, bottomY - dotRadius - 2.dp.toPx()),
+            strokeWidth = 1.dp.toPx(),
+            pathEffect = PathEffect.dashPathEffect(floatArrayOf(4.dp.toPx(), 3.dp.toPx()))
+        )
+
+        // Bottom dot
+        drawCircle(
+            color = Color.White,
+            radius = dotRadius,
+            center = Offset(centerX, bottomY)
+        )
     }
 }
 
