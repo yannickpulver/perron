@@ -40,6 +40,12 @@ class ComplicationToggleReceiver : BroadcastReceiver() {
             try {
                 args.updateState(context)
 
+                // Flag that this update was triggered by a tap → force fresh location
+                context.getSharedPreferences("perron", Context.MODE_PRIVATE)
+                    .edit()
+                    .putBoolean("force_fresh_location", true)
+                    .apply()
+
                 // Request an update for the complication that has just been toggled.
                 ComplicationDataSourceUpdateRequester
                     .create(

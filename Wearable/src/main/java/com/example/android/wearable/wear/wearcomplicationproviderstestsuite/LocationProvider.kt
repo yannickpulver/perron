@@ -34,7 +34,7 @@ sealed class LocationResult {
 }
 
 interface LocationProvider {
-    suspend fun getLocation(): LocationResult
+    suspend fun getLocation(forceFresh: Boolean = false): LocationResult
 }
 
 class WearLocationProvider(private val context: Context) : LocationProvider {
@@ -44,8 +44,12 @@ class WearLocationProvider(private val context: Context) : LocationProvider {
     private var cachedLocation: Pair<LocationResult, Long>? = null
     private val cacheValidityMs = 5 * 60 * 1000L // 5 minutes
 
-    override suspend fun getLocation(): LocationResult {
-        Log.d(TAG, "getLocation() called")
+    fun invalidateCache() {
+        cachedLocation = null
+    }
+
+    suspend fun getLocation(forceFresh: Boolean = false): LocationResult {
+        Log.d(TAG, "getLocation() called, forceFresh=$forceFresh")
 
         // Check permission
         val hasFine = ContextCompat.checkSelfPermission(
@@ -63,27 +67,29 @@ class WearLocationProvider(private val context: Context) : LocationProvider {
             return LocationResult.Error("Permission denied")
         }
 
-        // Check cache
-        cachedLocation?.let { (result, timestamp) ->
-            if (System.currentTimeMillis() - timestamp < cacheValidityMs) {
-                Log.d(TAG, "Returning cached location: $result")
-                return result
+        if (!forceFresh) {
+            // Check cache
+            cachedLocation?.let { (result, timestamp) ->
+                if (System.currentTimeMillis() - timestamp < cacheValidityMs) {
+                    Log.d(TAG, "Returning cached location: $result")
+                    return result
+                }
             }
-        }
 
-        // Try last known location first
-        try {
-            Log.d(TAG, "Trying lastLocation...")
-            val lastLocation = fusedLocationClient.lastLocation.await()
-            if (lastLocation != null) {
-                Log.d(TAG, "lastLocation: ${lastLocation.latitude}, ${lastLocation.longitude}")
-                val result = LocationResult.Success(lastLocation.latitude, lastLocation.longitude)
-                cachedLocation = result to System.currentTimeMillis()
-                return result
+            // Try last known location first
+            try {
+                Log.d(TAG, "Trying lastLocation...")
+                val lastLocation = fusedLocationClient.lastLocation.await()
+                if (lastLocation != null) {
+                    Log.d(TAG, "lastLocation: ${lastLocation.latitude}, ${lastLocation.longitude}")
+                    val result = LocationResult.Success(lastLocation.latitude, lastLocation.longitude)
+                    cachedLocation = result to System.currentTimeMillis()
+                    return result
+                }
+                Log.d(TAG, "lastLocation was null")
+            } catch (e: Exception) {
+                Log.e(TAG, "lastLocation error: ${e.message}")
             }
-            Log.d(TAG, "lastLocation was null")
-        } catch (e: Exception) {
-            Log.e(TAG, "lastLocation error: ${e.message}")
         }
 
         // Request fresh location with timeout

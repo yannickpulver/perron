@@ -54,8 +54,15 @@ class TransportDataSourceService : SuspendingComplicationDataSourceService() {
     }
 
     private suspend fun selectRoute(routes: List<Route>, state: Long): Route {
+        val prefs = getSharedPreferences("perron", MODE_PRIVATE)
+        val forceFresh = prefs.getBoolean("force_fresh_location", false)
+        if (forceFresh) {
+            prefs.edit().putBoolean("force_fresh_location", false).apply()
+        }
+        Log.d(TAG, "selectRoute: forceFresh=$forceFresh")
+
         val locationProvider = WearLocationProvider(this)
-        return when (val locationResult = locationProvider.getLocation()) {
+        return when (val locationResult = locationProvider.getLocation(forceFresh = forceFresh)) {
             is LocationResult.Success -> {
                 StationSelector.selectClosestRoute(
                     locationResult.latitude, locationResult.longitude, routes
