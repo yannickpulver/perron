@@ -8,10 +8,10 @@ plugins {
 
 android {
     compileSdk 35
-    namespace "com.example.android.wearable.wear.wearcomplicationproviderstestsuite"
+    namespace "com.yannickpulver.perron"
 
     defaultConfig {
-        applicationId "com.example.android.wearable.wear.wearcomplicationproviderstestsuite"
+        applicationId "com.yannickpulver.perron"
         versionCode 1
         versionName "1.0"
         minSdk 26
