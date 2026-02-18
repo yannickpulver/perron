@@ -424,7 +424,7 @@ private fun StationSearchScreen(
                         Icon(
                             painter = painterResource(android.R.drawable.ic_menu_search),
                             contentDescription = "Search",
-                            modifier = Modifier.size(16.dp)
+                            modifier = Modifier.size(24.dp)
                         )
                     }
                 )
