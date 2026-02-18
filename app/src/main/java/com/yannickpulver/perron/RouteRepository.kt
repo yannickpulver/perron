@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.yannickpulver.perron.json
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.serialization.encodeToString
@@ -11,7 +12,7 @@ import kotlinx.serialization.encodeToString
 object RouteRepository {
     private val ROUTES_KEY = stringPreferencesKey("routes_json")
 
-    suspend fun getRoutes(context: Context): List<Route> {
+    fun observeRoutes(context: Context): Flow<List<Route>> {
         return context.dataStore.data.map { prefs ->
             val jsonStr = prefs[ROUTES_KEY] ?: return@map emptyList()
             try {
@@ -19,7 +20,11 @@ object RouteRepository {
             } catch (_: Exception) {
                 emptyList()
             }
-        }.first()
+        }
+    }
+
+    suspend fun getRoutes(context: Context): List<Route> {
+        return observeRoutes(context).first()
     }
 
     suspend fun saveRoutes(context: Context, routes: List<Route>) {

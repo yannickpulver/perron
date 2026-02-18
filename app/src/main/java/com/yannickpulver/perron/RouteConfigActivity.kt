@@ -29,8 +29,8 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -79,9 +79,21 @@ private fun RouteConfigApp() {
     var selectedFrom by remember { mutableStateOf<StationInfo?>(null) }
     var selectedTo by remember { mutableStateOf<StationInfo?>(null) }
 
+    var locationGranted by remember { mutableStateOf(false) }
+
+    fun checkPermissions() {
+        val hasFine = context.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) ==
+            PackageManager.PERMISSION_GRANTED
+        val hasBg = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            context.checkSelfPermission(Manifest.permission.ACCESS_BACKGROUND_LOCATION) ==
+                PackageManager.PERMISSION_GRANTED
+        } else true
+        locationGranted = hasFine && hasBg
+    }
+
     val bgPermissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission()
-    ) { /* best effort */ }
+    ) { checkPermissions() }
 
     val fgPermissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
@@ -89,27 +101,12 @@ private fun RouteConfigApp() {
         val fineGranted = results[Manifest.permission.ACCESS_FINE_LOCATION] == true
         if (fineGranted && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             bgPermissionLauncher.launch(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+        } else {
+            checkPermissions()
         }
     }
 
-    LaunchedEffect(Unit) {
-        val hasFine = context.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) ==
-            PackageManager.PERMISSION_GRANTED
-        if (!hasFine) {
-            fgPermissionLauncher.launch(
-                arrayOf(
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-                )
-            )
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            val hasBg = context.checkSelfPermission(Manifest.permission.ACCESS_BACKGROUND_LOCATION) ==
-                PackageManager.PERMISSION_GRANTED
-            if (!hasBg) {
-                bgPermissionLauncher.launch(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-            }
-        }
-    }
+    LaunchedEffect(Unit) { checkPermissions() }
 
     SwipeDismissableNavHost(navController = navController, startDestination = "routes") {
         composable("routes") {
@@ -118,6 +115,15 @@ private fun RouteConfigApp() {
                     selectedFrom = null
                     selectedTo = null
                     navController.navigate("search_from")
+                },
+                locationGranted = locationGranted,
+                onRequestPermission = {
+                    fgPermissionLauncher.launch(
+                        arrayOf(
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION
+                        )
+                    )
                 }
             )
         }
@@ -164,18 +170,36 @@ private fun RouteConfigApp() {
 }
 
 @Composable
-private fun RouteListScreen(onAddRoute: () -> Unit) {
+private fun RouteListScreen(
+    onAddRoute: () -> Unit,
+    locationGranted: Boolean,
+    onRequestPermission: () -> Unit
+) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
-    val routes = remember { mutableStateListOf<Route>() }
-
-    LaunchedEffect(Unit) {
-        routes.clear()
-        routes.addAll(RouteRepository.getRoutes(context))
-    }
+    val routes by RouteRepository.observeRoutes(context).collectAsState(initial = emptyList())
 
     ScalingLazyColumn(modifier = Modifier.fillMaxSize()) {
         item { ListHeader { Text("Routes") } }
+
+        if (!locationGranted) {
+            item {
+                FilledTonalButton(
+                    onClick = onRequestPermission,
+                    modifier = Modifier.fillMaxWidth(),
+                    label = {
+                        Column {
+                            Text("Enable Location", fontSize = 12.sp)
+                            Text(
+                                "Auto-select nearest route",
+                                fontSize = 10.sp,
+                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
+                            )
+                        }
+                    }
+                )
+            }
+        }
 
         if (routes.isEmpty()) {
             item {
@@ -192,7 +216,6 @@ private fun RouteListScreen(onAddRoute: () -> Unit) {
                 onClick = {
                     scope.launch {
                         RouteRepository.removeRoute(context, route.id)
-                        routes.remove(route)
                     }
                 },
                 modifier = Modifier.fillMaxWidth(),
@@ -201,17 +224,14 @@ private fun RouteListScreen(onAddRoute: () -> Unit) {
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier.fillMaxWidth()
                     ) {
-                        // Dots and dashed line
                         RouteIndicator(modifier = Modifier.height(36.dp))
                         Spacer(Modifier.width(8.dp))
-                        // Station names
                         Column(modifier = Modifier.weight(1f)) {
                             Text(route.fromStation.name, fontSize = 12.sp, maxLines = 1)
                             Spacer(Modifier.height(4.dp))
                             Text(route.toStation.name, fontSize = 12.sp, maxLines = 1)
                         }
                         Spacer(Modifier.width(8.dp))
-                        // Icon on the right
                         Icon(
                             painter = painterResource(RouteIcon.fromKey(route.icon).drawableRes),
                             contentDescription = null,

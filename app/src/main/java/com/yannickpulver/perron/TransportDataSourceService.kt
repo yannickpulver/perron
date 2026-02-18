@@ -1,6 +1,7 @@
 package com.yannickpulver.perron
 
 import android.app.PendingIntent
+import android.content.pm.PackageManager
 import android.content.ComponentName
 import android.content.Intent
 import android.graphics.drawable.Icon
@@ -54,6 +55,18 @@ class TransportDataSourceService : SuspendingComplicationDataSourceService() {
     }
 
     private suspend fun selectRoute(routes: List<Route>, state: Long): Route {
+        val cycleRoute = routes[state.mod(routes.size).toInt()]
+
+        val hasPermission = checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) ==
+            PackageManager.PERMISSION_GRANTED ||
+            checkSelfPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION) ==
+            PackageManager.PERMISSION_GRANTED
+
+        if (!hasPermission) {
+            Log.d(TAG, "No location permission, cycling routes")
+            return cycleRoute
+        }
+
         val prefs = getSharedPreferences("perron", MODE_PRIVATE)
         val forceFresh = prefs.getBoolean("force_fresh_location", false)
         if (forceFresh) {
@@ -66,11 +79,11 @@ class TransportDataSourceService : SuspendingComplicationDataSourceService() {
             is LocationResult.Success -> {
                 StationSelector.selectClosestRoute(
                     locationResult.latitude, locationResult.longitude, routes
-                ) ?: routes[state.mod(routes.size).toInt()]
+                ) ?: cycleRoute
             }
             is LocationResult.Error -> {
                 Log.d(TAG, "Location error: ${locationResult.reason}")
-                routes[state.mod(routes.size).toInt()]
+                cycleRoute
             }
         }
     }
