@@ -58,6 +58,7 @@ import androidx.wear.compose.material3.Text
 import androidx.wear.compose.navigation.SwipeDismissableNavHost
 import androidx.wear.compose.navigation.composable
 import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
+import android.content.Context
 import kotlinx.coroutines.launch
 import java.util.UUID
 
@@ -78,8 +79,11 @@ private fun RouteConfigApp() {
     val navController = rememberSwipeDismissableNavController()
     var selectedFrom by remember { mutableStateOf<StationInfo?>(null) }
     var selectedTo by remember { mutableStateOf<StationInfo?>(null) }
+    var editingRoute by remember { mutableStateOf<Route?>(null) }
 
     var locationGranted by remember { mutableStateOf(false) }
+    val prefs = remember { context.getSharedPreferences("perron", Context.MODE_PRIVATE) }
+    var useLocation by remember { mutableStateOf(prefs.getBoolean("use_location", true)) }
 
     fun checkPermissions() {
         val hasFine = context.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) ==
@@ -112,11 +116,23 @@ private fun RouteConfigApp() {
         composable("routes") {
             RouteListScreen(
                 onAddRoute = {
+                    editingRoute = null
                     selectedFrom = null
                     selectedTo = null
                     navController.navigate("search_from")
                 },
+                onRouteClick = { route ->
+                    editingRoute = route
+                    selectedFrom = route.fromStation
+                    selectedTo = route.toStation
+                    navController.navigate("route_detail")
+                },
                 locationGranted = locationGranted,
+                useLocation = useLocation,
+                onToggleLocation = {
+                    useLocation = !useLocation
+                    prefs.edit().putBoolean("use_location", useLocation).apply()
+                },
                 onRequestPermission = {
                     fgPermissionLauncher.launch(
                         arrayOf(
@@ -148,6 +164,20 @@ private fun RouteConfigApp() {
                 )
             }
         }
+        composable("route_detail") {
+            val route = editingRoute
+            if (route != null) {
+                RouteDetailScreen(
+                    route = route,
+                    onEdit = {
+                        navController.navigate("search_from")
+                    },
+                    onDelete = {
+                        navController.popBackStack("routes", false)
+                    }
+                )
+            }
+        }
         composable("pick_icon") {
             val from = selectedFrom
             val to = selectedTo
@@ -155,7 +185,7 @@ private fun RouteConfigApp() {
                 IconPickerScreen(
                     onIconSelected = { iconKey ->
                         val route = Route(
-                            id = UUID.randomUUID().toString(),
+                            id = editingRoute?.id ?: UUID.randomUUID().toString(),
                             fromStation = from,
                             toStation = to,
                             icon = iconKey
@@ -172,12 +202,13 @@ private fun RouteConfigApp() {
 @Composable
 private fun RouteListScreen(
     onAddRoute: () -> Unit,
+    onRouteClick: (Route) -> Unit,
     locationGranted: Boolean,
+    useLocation: Boolean,
+    onToggleLocation: () -> Unit,
     onRequestPermission: () -> Unit
 ) {
-    val context = LocalContext.current
-    val scope = rememberCoroutineScope()
-    val routes by RouteRepository.observeRoutes(context).collectAsState(initial = emptyList())
+    val routes by RouteRepository.observeRoutes(LocalContext.current).collectAsState(initial = emptyList())
 
     ScalingLazyColumn(modifier = Modifier.fillMaxSize()) {
         item { ListHeader { Text("Routes") } }
@@ -199,6 +230,26 @@ private fun RouteListScreen(
                     }
                 )
             }
+        } else {
+            item {
+                FilledTonalButton(
+                    onClick = onToggleLocation,
+                    modifier = Modifier.fillMaxWidth(),
+                    label = {
+                        Column {
+                            Text(
+                                if (useLocation) "Location: On" else "Location: Off",
+                                fontSize = 12.sp
+                            )
+                            Text(
+                                if (useLocation) "Auto-selecting nearest" else "Cycling through routes",
+                                fontSize = 10.sp,
+                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
+                            )
+                        }
+                    }
+                )
+            }
         }
 
         if (routes.isEmpty()) {
@@ -213,11 +264,7 @@ private fun RouteListScreen(
 
         items(routes, key = { it.id }) { route ->
             FilledTonalButton(
-                onClick = {
-                    scope.launch {
-                        RouteRepository.removeRoute(context, route.id)
-                    }
-                },
+                onClick = { onRouteClick(route) },
                 modifier = Modifier.fillMaxWidth(),
                 label = {
                     Row(
@@ -247,6 +294,62 @@ private fun RouteListScreen(
                 onClick = onAddRoute,
                 modifier = Modifier.fillMaxWidth(),
                 label = { Text("+ Add Route") }
+            )
+        }
+    }
+}
+
+@Composable
+private fun RouteDetailScreen(
+    route: Route,
+    onEdit: () -> Unit,
+    onDelete: () -> Unit
+) {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+
+    ScalingLazyColumn(modifier = Modifier.fillMaxSize()) {
+        item { ListHeader { Text("Route") } }
+
+        item {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
+            ) {
+                RouteIndicator(modifier = Modifier.height(36.dp))
+                Spacer(Modifier.width(8.dp))
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(route.fromStation.name, fontSize = 12.sp, maxLines = 1)
+                    Spacer(Modifier.height(4.dp))
+                    Text(route.toStation.name, fontSize = 12.sp, maxLines = 1)
+                }
+                Spacer(Modifier.width(8.dp))
+                Icon(
+                    painter = painterResource(RouteIcon.fromKey(route.icon).drawableRes),
+                    contentDescription = null,
+                    modifier = Modifier.size(16.dp)
+                )
+            }
+        }
+
+        item {
+            Button(
+                onClick = onEdit,
+                modifier = Modifier.fillMaxWidth(),
+                label = { Text("Edit") }
+            )
+        }
+
+        item {
+            FilledTonalButton(
+                onClick = {
+                    scope.launch {
+                        RouteRepository.removeRoute(context, route.id)
+                        onDelete()
+                    }
+                },
+                modifier = Modifier.fillMaxWidth(),
+                label = { Text("Delete") }
             )
         }
     }
@@ -396,7 +499,7 @@ private fun IconPickerScreen(onIconSelected: (String) -> Route) {
                 onClick = {
                     scope.launch {
                         val route = onIconSelected(icon.key)
-                        RouteRepository.addRoute(context, route)
+                        RouteRepository.saveOrUpdateRoute(context, route)
                     }
                 },
                 modifier = Modifier.fillMaxWidth(),

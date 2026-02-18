@@ -39,6 +39,13 @@ object RouteRepository {
         saveRoutes(context, routes)
     }
 
+    suspend fun saveOrUpdateRoute(context: Context, route: Route) {
+        val routes = getRoutes(context).toMutableList()
+        val index = routes.indexOfFirst { it.id == route.id }
+        if (index >= 0) routes[index] = route else routes.add(route)
+        saveRoutes(context, routes)
+    }
+
     suspend fun removeRoute(context: Context, routeId: String) {
         val routes = getRoutes(context).filter { it.id != routeId }
         saveRoutes(context, routes)

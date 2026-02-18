@@ -62,8 +62,11 @@ class TransportDataSourceService : SuspendingComplicationDataSourceService() {
             checkSelfPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION) ==
             PackageManager.PERMISSION_GRANTED
 
-        if (!hasPermission) {
-            Log.d(TAG, "No location permission, cycling routes")
+        val useLocation = getSharedPreferences("perron", MODE_PRIVATE)
+            .getBoolean("use_location", true)
+
+        if (!hasPermission || !useLocation) {
+            Log.d(TAG, "No location permission or location disabled, cycling routes")
             return cycleRoute
         }
 
