@@ -10,7 +10,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -43,17 +42,24 @@ import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.wear.tooling.preview.devices.WearDevices
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
 import androidx.wear.compose.foundation.lazy.items
+import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.material3.Button
+import androidx.wear.compose.material3.ButtonDefaults
+import androidx.wear.compose.material3.EdgeButton
+import androidx.wear.compose.material3.EdgeButtonSize
 import androidx.wear.compose.material3.FilledTonalButton
 import androidx.wear.compose.material3.Icon
 import androidx.wear.compose.material3.ListHeader
 import androidx.wear.compose.material3.MaterialTheme
+import androidx.wear.compose.material3.ScreenScaffold
 import androidx.wear.compose.material3.Text
 import androidx.wear.compose.navigation.SwipeDismissableNavHost
 import androidx.wear.compose.navigation.composable
@@ -209,92 +215,104 @@ private fun RouteListScreen(
     onRequestPermission: () -> Unit
 ) {
     val routes by RouteRepository.observeRoutes(LocalContext.current).collectAsState(initial = emptyList())
+    val listState = rememberScalingLazyListState()
 
-    ScalingLazyColumn(modifier = Modifier.fillMaxSize()) {
-        item { ListHeader { Text("Routes") } }
-
-        if (!locationGranted) {
-            item {
-                FilledTonalButton(
-                    onClick = onRequestPermission,
-                    modifier = Modifier.fillMaxWidth(),
-                    label = {
-                        Column {
-                            Text("Enable Location", fontSize = 12.sp)
-                            Text(
-                                "Auto-select nearest route",
-                                fontSize = 10.sp,
-                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
-                            )
-                        }
-                    }
-                )
-            }
-        } else {
-            item {
-                FilledTonalButton(
-                    onClick = onToggleLocation,
-                    modifier = Modifier.fillMaxWidth(),
-                    label = {
-                        Column {
-                            Text(
-                                if (useLocation) "Location: On" else "Location: Off",
-                                fontSize = 12.sp
-                            )
-                            Text(
-                                if (useLocation) "Auto-selecting nearest" else "Cycling through routes",
-                                fontSize = 10.sp,
-                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
-                            )
-                        }
-                    }
-                )
-            }
-        }
-
-        if (routes.isEmpty()) {
-            item {
-                Text(
-                    "No routes yet",
-                    modifier = Modifier.fillMaxWidth().padding(16.dp),
-                    textAlign = TextAlign.Center
-                )
-            }
-        }
-
-        items(routes, key = { it.id }) { route ->
-            FilledTonalButton(
-                onClick = { onRouteClick(route) },
-                modifier = Modifier.fillMaxWidth(),
-                label = {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        RouteIndicator(modifier = Modifier.height(36.dp))
-                        Spacer(Modifier.width(8.dp))
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(route.fromStation.name, fontSize = 12.sp, maxLines = 1)
-                            Spacer(Modifier.height(4.dp))
-                            Text(route.toStation.name, fontSize = 12.sp, maxLines = 1)
-                        }
-                        Spacer(Modifier.width(8.dp))
-                        Icon(
-                            painter = painterResource(RouteIcon.fromKey(route.icon).drawableRes),
-                            contentDescription = null,
-                            modifier = Modifier.size(16.dp)
-                        )
-                    }
-                }
-            )
-        }
-
-        item {
-            Button(
+    ScreenScaffold(
+        scrollState = listState,
+        edgeButton = {
+            EdgeButton(
                 onClick = onAddRoute,
-                modifier = Modifier.fillMaxWidth(),
-                label = { Text("+ Add Route") }
-            )
+                buttonSize = EdgeButtonSize.Large,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.onSurface,
+                    contentColor = MaterialTheme.colorScheme.background,
+                ),
+            ) {
+                Text("+")
+            }
+        }
+    ) {
+        ScalingLazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            state = listState,
+        ) {
+            item { ListHeader { Text("Routes") } }
+
+            if (!locationGranted) {
+                item {
+                    FilledTonalButton(
+                        onClick = onRequestPermission,
+                        modifier = Modifier.fillMaxWidth(),
+                        label = {
+                            Column {
+                                Text("Enable Location", fontSize = 12.sp)
+                                Text(
+                                    "Auto-select nearest route",
+                                    fontSize = 10.sp,
+                                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
+                                )
+                            }
+                        }
+                    )
+                }
+            } else {
+                item {
+                    FilledTonalButton(
+                        onClick = onToggleLocation,
+                        modifier = Modifier.fillMaxWidth(),
+                        label = {
+                            Column {
+                                Text(
+                                    if (useLocation) "Location: On" else "Location: Off",
+                                    fontSize = 12.sp
+                                )
+                                Text(
+                                    if (useLocation) "Auto-selecting nearest" else "Cycling through routes",
+                                    fontSize = 10.sp,
+                                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
+                                )
+                            }
+                        }
+                    )
+                }
+            }
+
+            if (routes.isEmpty()) {
+                item {
+                    Text(
+                        "No routes yet",
+                        modifier = Modifier.fillMaxWidth().padding(16.dp),
+                        textAlign = TextAlign.Center
+                    )
+                }
+            }
+
+            items(routes, key = { it.id }) { route ->
+                FilledTonalButton(
+                    onClick = { onRouteClick(route) },
+                    modifier = Modifier.fillMaxWidth(),
+                    label = {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            RouteIndicator(modifier = Modifier.height(36.dp))
+                            Spacer(Modifier.width(8.dp))
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(route.fromStation.name, fontSize = 12.sp, maxLines = 1)
+                                Spacer(Modifier.height(4.dp))
+                                Text(route.toStation.name, fontSize = 12.sp, maxLines = 1)
+                            }
+                            Spacer(Modifier.width(8.dp))
+                            Icon(
+                                painter = painterResource(RouteIcon.fromKey(route.icon).drawableRes),
+                                contentDescription = null,
+                                modifier = Modifier.size(16.dp)
+                            )
+                        }
+                    }
+                )
+            }
         }
     }
 }
@@ -307,50 +325,62 @@ private fun RouteDetailScreen(
 ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
+    val listState = rememberScalingLazyListState()
 
-    ScalingLazyColumn(modifier = Modifier.fillMaxSize()) {
-        item { ListHeader { Text("Route") } }
-
-        item {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
+    ScreenScaffold(
+        scrollState = listState,
+        edgeButton = {
+            EdgeButton(
+                onClick = onEdit,
+                buttonSize = EdgeButtonSize.Large,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.onSurface,
+                    contentColor = MaterialTheme.colorScheme.background,
+                ),
             ) {
-                RouteIndicator(modifier = Modifier.height(36.dp))
-                Spacer(Modifier.width(8.dp))
-                Column(modifier = Modifier.weight(1f)) {
-                    Text(route.fromStation.name, fontSize = 12.sp, maxLines = 1)
-                    Spacer(Modifier.height(4.dp))
-                    Text(route.toStation.name, fontSize = 12.sp, maxLines = 1)
-                }
-                Spacer(Modifier.width(8.dp))
-                Icon(
-                    painter = painterResource(RouteIcon.fromKey(route.icon).drawableRes),
-                    contentDescription = null,
-                    modifier = Modifier.size(16.dp)
-                )
+                Text("Edit")
             }
         }
+    ) {
+        ScalingLazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            state = listState,
+        ) {
+            item { ListHeader { Text("Route") } }
 
-        item {
-            Button(
-                onClick = onEdit,
-                modifier = Modifier.fillMaxWidth(),
-                label = { Text("Edit") }
-            )
-        }
-
-        item {
-            FilledTonalButton(
-                onClick = {
-                    scope.launch {
-                        RouteRepository.removeRoute(context, route.id)
-                        onDelete()
+            item {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
+                ) {
+                    RouteIndicator(modifier = Modifier.height(36.dp))
+                    Spacer(Modifier.width(8.dp))
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(route.fromStation.name, fontSize = 12.sp, maxLines = 1)
+                        Spacer(Modifier.height(4.dp))
+                        Text(route.toStation.name, fontSize = 12.sp, maxLines = 1)
                     }
-                },
-                modifier = Modifier.fillMaxWidth(),
-                label = { Text("Delete") }
-            )
+                    Spacer(Modifier.width(8.dp))
+                    Icon(
+                        painter = painterResource(RouteIcon.fromKey(route.icon).drawableRes),
+                        contentDescription = null,
+                        modifier = Modifier.size(16.dp)
+                    )
+                }
+            }
+
+            item {
+                FilledTonalButton(
+                    onClick = {
+                        scope.launch {
+                            RouteRepository.removeRoute(context, route.id)
+                            onDelete()
+                        }
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    label = { Text("Delete") }
+                )
+            }
         }
     }
 }
@@ -365,7 +395,7 @@ private fun StationSearchScreen(
     var query by remember { mutableStateOf("") }
     var results by remember { mutableStateOf<List<StationInfo>>(emptyList()) }
     var searching by remember { mutableStateOf(false) }
-    val listState = androidx.wear.compose.foundation.lazy.rememberScalingLazyListState()
+    val listState = rememberScalingLazyListState()
 
     fun doSearch() {
         keyboardController?.hide()
@@ -377,28 +407,43 @@ private fun StationSearchScreen(
                 emptyList()
             }
             searching = false
-            // Scroll to results (item 0 = header, 1 = search row, 2+ = results)
             if (results.isNotEmpty()) {
                 listState.animateScrollToItem(2)
             }
         }
     }
 
-    ScalingLazyColumn(
-        modifier = Modifier.fillMaxSize(),
-        state = listState
+    ScreenScaffold(
+        scrollState = listState,
+        edgeButton = {
+            if (results.isEmpty()) {
+                EdgeButton(
+                    onClick = { doSearch() },
+                    buttonSize = EdgeButtonSize.Large,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.onSurface,
+                        contentColor = MaterialTheme.colorScheme.background,
+                    ),
+                ) {
+                    Icon(
+                        painter = painterResource(android.R.drawable.ic_menu_search),
+                        contentDescription = "Search",
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+            }
+        }
     ) {
-        item { ListHeader { Text(title) } }
+        ScalingLazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            state = listState
+        ) {
+            item { ListHeader { Text(title) } }
 
-        item {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(6.dp)
-            ) {
+            item {
                 Box(
                     modifier = Modifier
-                        .weight(1f)
+                        .fillMaxWidth()
                         .background(Color.DarkGray, RoundedCornerShape(8.dp))
                         .padding(horizontal = 12.dp, vertical = 8.dp),
                     contentAlignment = Alignment.CenterStart
@@ -408,7 +453,10 @@ private fun StationSearchScreen(
                     }
                     BasicTextField(
                         value = query,
-                        onValueChange = { query = it },
+                        onValueChange = {
+                            query = it
+                            results = emptyList()
+                        },
                         textStyle = TextStyle(color = Color.White, fontSize = 14.sp),
                         cursorBrush = SolidColor(Color.White),
                         keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
@@ -417,38 +465,27 @@ private fun StationSearchScreen(
                         modifier = Modifier.fillMaxWidth()
                     )
                 }
-                Button(
-                    onClick = { doSearch() },
-                    modifier = Modifier.size(36.dp),
-                    label = {
-                        Icon(
-                            painter = painterResource(android.R.drawable.ic_menu_search),
-                            contentDescription = "Search",
-                            modifier = Modifier.size(24.dp)
-                        )
-                    }
+            }
+
+            if (searching) {
+                item {
+                    Text(
+                        "Searching...",
+                        modifier = Modifier.fillMaxWidth().padding(8.dp),
+                        textAlign = TextAlign.Center,
+                        fontSize = 12.sp,
+                        color = Color.Gray
+                    )
+                }
+            }
+
+            items(results, key = { it.id }) { station ->
+                FilledTonalButton(
+                    onClick = { onStationSelected(station) },
+                    modifier = Modifier.fillMaxWidth(),
+                    label = { Text(station.name) }
                 )
             }
-        }
-
-        if (searching) {
-            item {
-                Text(
-                    "Searching...",
-                    modifier = Modifier.fillMaxWidth().padding(8.dp),
-                    textAlign = TextAlign.Center,
-                    fontSize = 12.sp,
-                    color = Color.Gray
-                )
-            }
-        }
-
-        items(results, key = { it.id }) { station ->
-            FilledTonalButton(
-                onClick = { onStationSelected(station) },
-                modifier = Modifier.fillMaxWidth(),
-                label = { Text(station.name) }
-            )
         }
     }
 }
@@ -513,5 +550,63 @@ private fun IconPickerScreen(onIconSelected: (String) -> Route) {
                 label = { Text(icon.label) }
             )
         }
+    }
+}
+
+private val sampleRoutes = listOf(
+    Route(
+        id = "1",
+        fromStation = StationInfo("Bern", "8507000", 46.94, 7.44),
+        toStation = StationInfo("Zürich HB", "8503000", 47.38, 8.54),
+        icon = "train"
+    ),
+    Route(
+        id = "2",
+        fromStation = StationInfo("Bern", "8507000", 46.94, 7.44),
+        toStation = StationInfo("Basel SBB", "8500010", 47.55, 7.59),
+        icon = "work"
+    ),
+)
+
+@Preview(device = WearDevices.SMALL_ROUND, showSystemUi = true)
+@Composable
+private fun RouteListPreview() {
+    MaterialTheme {
+        RouteListScreen(
+            onAddRoute = {},
+            onRouteClick = {},
+            locationGranted = true,
+            useLocation = true,
+            onToggleLocation = {},
+            onRequestPermission = {},
+        )
+    }
+}
+
+@Preview(device = WearDevices.SMALL_ROUND, showSystemUi = true)
+@Composable
+private fun StationSearchPreview() {
+    MaterialTheme {
+        StationSearchScreen(title = "From Station", onStationSelected = {})
+    }
+}
+
+@Preview(device = WearDevices.SMALL_ROUND, showSystemUi = true)
+@Composable
+private fun RouteDetailPreview() {
+    MaterialTheme {
+        RouteDetailScreen(
+            route = sampleRoutes.first(),
+            onEdit = {},
+            onDelete = {},
+        )
+    }
+}
+
+@Preview(device = WearDevices.SMALL_ROUND, showSystemUi = true)
+@Composable
+private fun IconPickerPreview() {
+    MaterialTheme {
+        IconPickerScreen(onIconSelected = { sampleRoutes.first() })
     }
 }

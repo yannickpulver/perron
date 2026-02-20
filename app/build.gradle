@@ -76,10 +76,13 @@ dependencies {
     implementation libs.androidx.activity.compose
     implementation platform(libs.androidx.compose.bom)
     implementation "androidx.compose.ui:ui"
+    implementation "androidx.compose.ui:ui-tooling-preview"
+    debugImplementation "androidx.compose.ui:ui-tooling"
     implementation "androidx.compose.foundation:foundation"
 
     // Wear Compose
     implementation libs.androidx.wear.compose.material3
     implementation libs.androidx.wear.compose.foundation
     implementation libs.androidx.wear.compose.navigation
+    implementation libs.wear.tooling.preview
 }
