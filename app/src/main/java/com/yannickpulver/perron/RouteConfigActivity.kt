@@ -318,7 +318,7 @@ private fun RouteListScreen(
 }
 
 @Composable
-private fun RouteDetailScreen(
+internal fun RouteDetailScreen(
     route: Route,
     onEdit: () -> Unit,
     onDelete: () -> Unit
@@ -491,7 +491,7 @@ private fun StationSearchScreen(
 }
 
 @Composable
-private fun RouteIndicator(modifier: Modifier = Modifier) {
+internal fun RouteIndicator(modifier: Modifier = Modifier) {
     Canvas(modifier = modifier.width(8.dp)) {
         val dotRadius = 3.dp.toPx()
         val centerX = size.width / 2
@@ -553,17 +553,17 @@ private fun IconPickerScreen(onIconSelected: (String) -> Route) {
     }
 }
 
-private val sampleRoutes = listOf(
+internal val sampleRoutes = listOf(
     Route(
         id = "1",
         fromStation = StationInfo("Bern", "8507000", 46.94, 7.44),
         toStation = StationInfo("Zürich HB", "8503000", 47.38, 8.54),
-        icon = "train"
+        icon = "home"
     ),
     Route(
         id = "2",
-        fromStation = StationInfo("Bern", "8507000", 46.94, 7.44),
-        toStation = StationInfo("Basel SBB", "8500010", 47.55, 7.59),
+        fromStation = StationInfo("Zürich HB", "8503000", 47.38, 8.54),
+        toStation = StationInfo("Bern", "8507000", 46.94, 7.44),
         icon = "work"
     ),
 )
@@ -597,6 +597,30 @@ private fun RouteDetailPreview() {
     MaterialTheme {
         RouteDetailScreen(
             route = sampleRoutes.first(),
+            onEdit = {},
+            onDelete = {},
+        )
+    }
+}
+
+@Preview(device = WearDevices.SMALL_ROUND, showSystemUi = true)
+@Composable
+private fun RouteDetailBernZurichPreview() {
+    MaterialTheme {
+        RouteDetailScreen(
+            route = sampleRoutes[0],
+            onEdit = {},
+            onDelete = {},
+        )
+    }
+}
+
+@Preview(device = WearDevices.SMALL_ROUND, showSystemUi = true)
+@Composable
+private fun RouteDetailZurichBernPreview() {
+    MaterialTheme {
+        RouteDetailScreen(
+            route = sampleRoutes[1],
             onEdit = {},
             onDelete = {},
         )

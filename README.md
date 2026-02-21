@@ -2,6 +2,10 @@
 
 **Next departures on your wrist.** A Wear OS complication that shows upcoming public transport departures based on your location.
 
+<p align="center">
+  <img src="docs/screenshot_route_list.png" width="200" alt="Route list screenshot" />
+</p>
+
 ## Features
 
 - 📍 **Auto-detect** — Finds the closest station to you
