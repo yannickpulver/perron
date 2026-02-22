@@ -3,6 +3,7 @@
 **Next departures on your wrist.** A Wear OS complication that shows upcoming public transport departures based on your location.
 
 <p align="center">
+  <img src="docs/screenshot_watchface.png" width="200" alt="Watch face with Perron complication" />
   <img src="docs/screenshot_route_list.png" width="200" alt="Route list screenshot" />
 </p>
 
