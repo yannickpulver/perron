@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
@@ -70,6 +71,7 @@ import java.util.UUID
 
 class RouteConfigActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme {
@@ -527,28 +529,34 @@ internal fun RouteIndicator(modifier: Modifier = Modifier) {
 private fun IconPickerScreen(onIconSelected: (String) -> Route) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
+    val listState = rememberScalingLazyListState()
 
-    ScalingLazyColumn(modifier = Modifier.fillMaxSize()) {
-        item { ListHeader { Text("Pick Icon") } }
+    ScreenScaffold(scrollState = listState) {
+        ScalingLazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            state = listState,
+        ) {
+            item { ListHeader { Text("Pick Icon") } }
 
-        items(RouteIcon.entries.toList()) { icon ->
-            FilledTonalButton(
-                onClick = {
-                    scope.launch {
-                        val route = onIconSelected(icon.key)
-                        RouteRepository.saveOrUpdateRoute(context, route)
-                    }
-                },
-                modifier = Modifier.fillMaxWidth(),
-                icon = {
-                    Icon(
-                        painter = painterResource(icon.drawableRes),
-                        contentDescription = icon.label,
-                        modifier = Modifier.size(16.dp)
-                    )
-                },
-                label = { Text(icon.label) }
-            )
+            items(RouteIcon.entries.toList()) { icon ->
+                FilledTonalButton(
+                    onClick = {
+                        scope.launch {
+                            val route = onIconSelected(icon.key)
+                            RouteRepository.saveOrUpdateRoute(context, route)
+                        }
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    icon = {
+                        Icon(
+                            painter = painterResource(icon.drawableRes),
+                            contentDescription = icon.label,
+                            modifier = Modifier.size(16.dp)
+                        )
+                    },
+                    label = { Text(icon.label) }
+                )
+            }
         }
     }
 }
