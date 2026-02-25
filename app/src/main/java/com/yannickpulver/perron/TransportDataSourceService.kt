@@ -41,17 +41,56 @@ class TransportDataSourceService : SuspendingComplicationDataSourceService() {
             return getNoRouteComplication(openConfigIntent())
         }
 
+        val prefs = getSharedPreferences("perron", MODE_PRIVATE)
+        val forceFresh = prefs.getBoolean("force_fresh_location", false)
+
         val route = selectRoute(routes, state)
         Log.d(TAG, "Selected route: ${route.fromStation.name} -> ${route.toStation.name}")
+
+        val tapIntent = ComplicationToggleReceiver.getComplicationToggleIntent(this, args)
+        val iconRes = RouteIcon.fromKey(route.icon).drawableRes
+        val routeKey = "${route.fromStation.name}-${route.toStation.name}"
+
+        val cached = getCachedData(prefs, routeKey)
+        if (!forceFresh && cached != null) {
+            Log.d(TAG, "Using cached data, next departure in ${cached.minutesUntilDeparture} min")
+            return buildComplicationData(tapIntent, cached.displayTime, iconRes)
+        }
 
         val from = java.net.URLEncoder.encode(route.fromStation.name, "UTF-8")
         val to = java.net.URLEncoder.encode(route.toStation.name, "UTF-8")
         val response = client.get("https://transport.opendata.ch/v1/connections?from=$from&to=$to&limit=3")
         val connectionList = json.decodeFromString<ConnectionList>(response.body())
 
-        val tapIntent = ComplicationToggleReceiver.getComplicationToggleIntent(this, args)
-        val iconRes = RouteIcon.fromKey(route.icon).drawableRes
+        cacheData(prefs, routeKey, connectionList)
+
         return buildComplicationData(tapIntent, connectionList.toTime(), iconRes)
+    }
+
+    private data class CachedDeparture(val displayTime: String, val minutesUntilDeparture: Long)
+
+    private fun getCachedData(prefs: android.content.SharedPreferences, routeKey: String): CachedDeparture? {
+        val cachedKey = prefs.getString("cache_route_key", null) ?: return null
+        if (cachedKey != routeKey) return null
+        val cachedTime = prefs.getString("cache_display_time", null) ?: return null
+        val cachedDeparture = prefs.getLong("cache_departure_ts", 0)
+        val nowSecs = System.currentTimeMillis() / 1000
+        val minutesUntil = (cachedDeparture - nowSecs) / 60
+        if (minutesUntil <= 30) return null
+        return CachedDeparture(cachedTime, minutesUntil)
+    }
+
+    private fun cacheData(
+        prefs: android.content.SharedPreferences,
+        routeKey: String,
+        connectionList: ConnectionList
+    ) {
+        val firstTs = connectionList.connections.firstOrNull()?.from?.departureTimestamp?.toLong() ?: return
+        prefs.edit()
+            .putString("cache_route_key", routeKey)
+            .putString("cache_display_time", connectionList.toTime())
+            .putLong("cache_departure_ts", firstTs)
+            .apply()
     }
 
     private suspend fun selectRoute(routes: List<Route>, state: Long): Route {
