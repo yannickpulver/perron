@@ -118,6 +118,20 @@ private fun RouteConfigApp() {
         }
     }
 
+    var requestPermissionAfterDisclosure by remember { mutableStateOf(false) }
+
+    LaunchedEffect(requestPermissionAfterDisclosure) {
+        if (requestPermissionAfterDisclosure) {
+            requestPermissionAfterDisclosure = false
+            fgPermissionLauncher.launch(
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                )
+            )
+        }
+    }
+
     LaunchedEffect(Unit) { checkPermissions() }
 
     SwipeDismissableNavHost(navController = navController, startDestination = "routes") {
@@ -142,12 +156,15 @@ private fun RouteConfigApp() {
                     prefs.edit().putBoolean("use_location", useLocation).apply()
                 },
                 onRequestPermission = {
-                    fgPermissionLauncher.launch(
-                        arrayOf(
-                            Manifest.permission.ACCESS_FINE_LOCATION,
-                            Manifest.permission.ACCESS_COARSE_LOCATION
-                        )
-                    )
+                    navController.navigate("location_disclosure")
+                }
+            )
+        }
+        composable("location_disclosure") {
+            LocationDisclosureScreen(
+                onContinue = {
+                    requestPermissionAfterDisclosure = true
+                    navController.popBackStack()
                 }
             )
         }
@@ -313,6 +330,41 @@ private fun RouteListScreen(
                             )
                         }
                     }
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun LocationDisclosureScreen(onContinue: () -> Unit) {
+    val listState = rememberScalingLazyListState()
+    ScreenScaffold(
+        scrollState = listState,
+        edgeButton = {
+            EdgeButton(
+                onClick = onContinue,
+                buttonSize = EdgeButtonSize.Large,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.onSurface,
+                    contentColor = MaterialTheme.colorScheme.background,
+                ),
+            ) {
+                Text("OK")
+            }
+        }
+    ) {
+        ScalingLazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            state = listState,
+        ) {
+            item { ListHeader { Text("Location Access") } }
+            item {
+                Text(
+                    "Perron collects location data to automatically select your nearest transit station even when the app is closed or not in use. Your location is only used on-device to determine the closest station and never leaves your watch.",
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                    fontSize = 13.sp,
+                    textAlign = TextAlign.Center
                 )
             }
         }
